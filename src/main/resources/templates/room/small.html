@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/masterlayout}">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/master.css}">
+    <title>List of Rooms</title>
+</head>
+<body>
+
+<th:block  layout:fragment="content">
+
+    <div>
+        <h3 style="font-size: 1.5em;"> All Small Rooms</h3>
+
+        <div style="float: right;">
+            <a href="/" class="btn btn-outline-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
+            <a href="/guestInfo" class="btn btn-outline-success">Back</a></button>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+
+    <table class="table table-hover" >
+        <thead>
+        <tr >
+            <th scope="col">#</th>
+            <th scope="col">Room Catagory</th>
+            <th scope="col">Room Size</th>
+            <th scope="col">Room Foor</th>
+            <th scope="col">Room Price</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="room,iterStat : ${rooms}" > <!--th:onclick="@{document.location='/products/edit/{id}'(id=${product.productId})}"-->
+            <th scope="row" th:text="${iterStat.count}"></th>
+            <td th:text="${room.category}"></td>
+            <td th:text="${room.size}"></td>
+            <td th:text="${room.floor}"></td>
+            <td th:text="${room.price}"></td>
+            <td><a class="btn btn-primary" th:href="@{'/room/book/' + ${room.id}}">Book</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</th:block>
+
+
+
+
+
+</div>
+
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

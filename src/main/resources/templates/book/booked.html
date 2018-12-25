@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/masterlayout}">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/master.css}">
+    <title>Reserved </title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+    <form id="bookingForm" method="get" action="/">
+        <fieldset style="border: #1e7e34; border-radius: 20px">
+            <legend><h2>Thank You For making a reservation with us!</h2></legend>
+             <br><br>
+            <div style="float: right;">
+            <div style="float: right;">
+               <h4>please find your attachment for your receipt!!</h4>
+            </div>
+
+                <div >
+                    <img class="img-fluid " src="images/like.jpg" alt="hotel" height="100px" width="200px"></a>
+
+                </div>
+
+
+
+            <br>
+
+
+            <div  style="float: right;">
+                <button id="btnSubmit" type="submit" class="btn btn-outline-success">Done</button>
+            </div>
+            </div>
+        </fieldset>
+    </form>
+</th:block>
+<th:block layout:fragment="footer"></th:block>
+
+
+</body>
+</html>

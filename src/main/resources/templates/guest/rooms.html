@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/masterlayout}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="moke">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/master.css}">
+    <title>home page</title>
+</head>
+
+<body>
+<th:block layout:fragment="content">
+
+    <h3 class= ".validation-message" > Please Choose The Room Catagory!</h3>
+    <br/> <br/>
+
+
+    <div><span style="float: left;border-radius: 15px" >
+                <a class="btn btn-outline-primary btn-lg" href="/large">Large</a>
+            </span>
+        &nbsp; &nbsp;  &nbsp;
+        <span style="alignment: center" >
+
+                <a class="btn btn-outline-primary btn-lg" href="/medium">Medium</a>
+            </span>
+        &nbsp; &nbsp;  &nbsp;
+        <span style="float: none" >
+                <a class="btn btn-outline-primary btn-lg" href="/small">Small</a>
+        </span>
+
+    </div>
+    <br><br>
+    <div >
+        <img class="img-fluid " src="images/hotel.jpg" alt="hotel" height="100px" width="1110px"></a>
+
+    </div>
+    <br><br>
+    <div>
+        <div >
+            To reserve and book our <a href="//homes">Booking</a>  and <a href="/">Resrvetion</a>  , please first make sure to read the
+            instructions and key points provided below. And then click the
+            appropriate menu item, located on the menu-bar above.<br/><br/>
+
+            <!--  the Hotel Reservation System. The proposed system is designed to make reservations of hotel rooms online.
+              It is designed to be user-friendly that provides flexible accommodation of functions.
+              The main objective of the system is too fulfilling the need of having the system that
+              accommodates hotel reservation, to provide fast and accurate services
+             --> <br/>
+        </div>
+
+    </div>
+
+</th:block>
+
+<div class="container">
+
+    <hr/>
+
+</div>
+
+
+
+
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

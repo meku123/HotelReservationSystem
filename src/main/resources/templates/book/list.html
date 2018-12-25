@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/masterlayout}">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/master.css}">
+    <title>List of Reservations</title>
+</head>
+<body>
+
+<th:block  layout:fragment="content">
+
+    <div>
+        <h3 style="font-size: 1.5em;">List of All Reservation</h3>
+
+        <span style="float:right;">
+            <a class="btn btn-outline-success btn-lg" href="/rooms">Add New Rersevesion</a>
+            &nbsp;&nbsp;&nbsp;
+             <a href="/login" class="btn btn-outline-warning btn-lg">Cancel</a>
+            </span>
+    </div>
+    <p>&nbsp;</p>
+
+    <table class="table table-hover" >
+        <thead>
+        <tr >
+            resevedList
+            <!--<th scope="col">#</th>-->
+            <th scope="col">Booked Guest</th>
+            <th scope="col">Booked Room</th>
+            <th scope="col">Booked Catagory</th>
+            <th scope="col">Booked Price</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${resevedList}" > <!--th:onclick="@{document.location='/products/edit/{id}'(id=${product.productId})}"-->
+            <!--<th scope="row" th:text="${iterStat.count}"></th>-->
+            <td th:text="${book.guest.fname}"></td>
+            <td th:text="${book.room.price}"></td>
+            <td th:text="${book.datefrom}"></td>
+            <td th:text="${book.dateto}"></td>
+            <td>
+                <!--<a th:href="@{'/room/' + ${room.id}}">Edit</a>&nbsp;-->
+                <a th:href="@{'/book/delete/' + ${book.id}}">Delete</a>
+                <!--<a th:href="@{'/book/book/' + ${book.id}}">Book</a>-->
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</th:block>
+
+
+
+
+
+</div>
+
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

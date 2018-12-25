@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/masterlayout}">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/master.css}">
+    <title>Room Form</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+    <form id="bookingForm" method="POST" action="/roomBooked"   th:object="${book}" >
+        <fieldset>
+            <legend>New Booking Form</legend>
+
+            <input type="hidden" name="id" th:value="${book.id}" />
+            <input type="hidden" name="room" th:value="${book.room}" />
+
+
+            <div class="form-group">
+                <label for="guest">Name</label>
+                <span th:if="${#fields.hasErrors('guest')}"	th:errors="*{ guest}" class="alert alert-danger"></span>
+
+                <select class="form-control" th:field="${book.guest}"	id="guest">
+                    <option th:each="guest : ${guests}"
+                            th:value="${guest.id}"
+                            th:text="${guest.fname}">
+
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="datefrom">Book Starting Date From</label> <span
+                    th:if="${#fields.hasErrors('datefrom')}"
+                    th:errors="*{datefrom}" class="alert alert-danger"></span>
+                <input id="datefrom" name="datefrom" type="date"
+                    class="form-control" th:value="${book.datefrom}">
+             </div>
+            <div class="form-group">
+                <label for="dateto">To Book End Date</label> <span
+                    th:if="${#fields.hasErrors('dateto')}"
+                    th:errors="*{dateto}" class="alert alert-danger"></span> <input
+                    id="dateto" name="dateto" type="date"
+                    class="form-control" th:value="${book.dateto}">
+            </div>
+
+            <div style="float: right;">
+                <a href="/login" class="btn btn-outline-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
+                <button id="btnReset" type="reset"
+                        class="btn btn-outline-success">Reset</button>
+                <button id="btnSubmit" type="submit"
+                        class="btn btn-outline-success">Book</button>
+            </div>
+
+        </fieldset>
+    </form>
+</th:block>
+<th:block layout:fragment="footer"></th:block>
+
+
+</body>
+</html>
+
